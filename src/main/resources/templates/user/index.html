@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <p th:text='${"Welcome" + user.getUsername() + "!"}'>Welcome message!</p>
+    <a th:href="@{/}">Service selection</a>
+
+    <h2>Users</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="user: ${usersList}">
+            <tr>
+                <td th:text="${user.getUsername()}">Name</td>
+                <td><a th:href="@{/user/{id}/view/(id=${user.getId()})}">Details</a></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

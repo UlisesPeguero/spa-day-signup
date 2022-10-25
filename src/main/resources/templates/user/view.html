@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User/View</title>
+</head>
+<body>
+  <h3>User</h3>
+  <th:block th:unless="${error}">
+    <p th:text="'Username: ' + ${user.getUsername()}"></p>
+    <p th:text="'Email: ' + ${user.getEmail()}"}></p>
+  </th:block>
+  <p th:if="${error}" th:text="${error}"></p>
+</body>
+</html>
